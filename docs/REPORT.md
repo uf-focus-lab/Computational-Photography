@@ -36,7 +36,7 @@ typst compile report.typ LabXX.pdf        # XX is the two-digit lab number, Lab0
 ))
 ```
 
-Each entry is a file name relative to the repository root and a label. `none` shows IMAGE PENDING in red until replaced. Labels sit in a shaded row under the images. A label that is itself a placeholder, such as `todo[Name of AI used]`, becomes the real name. Optional arguments: `height`, `stroke`, `inset`, `label-fill`.
+Each entry is a file name relative to the repository root and a label. `none` shows IMAGE PENDING in red until replaced. A deliverable that is a video or GIF is shown as frames in its own subsection, three per row; add one `("frame4.png", "Frame 4")` entry per extra frame and the grid wraps to a new row. Labels sit in a shaded row under the images. A label that is itself a placeholder, such as `todo[Name of AI used]`, becomes the real name. Optional arguments: `height`, `stroke`, `inset`, `label-fill`.
 
 ## Manual sections
 
