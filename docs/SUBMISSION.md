@@ -12,12 +12,12 @@ Paste this file into your agent, or reference it with `@docs/SUBMISSION.md`, whe
 
 5. **Finalise the AI disclosure.** It already holds one bullet per member, kept current after every task per `AGENTS.md`. Update the `Me:` bullet from your own record. Each bullet names tools and models, code the AI wrote or ran, figures it produced, text it drafted, and the parts done without AI. Show the student the section and ask them to bring back the group's confirmation or corrections in one message; do not finalise until they have. Then write the confirmed text, one bullet per member in roster order, one blank line between bullets. This is the one time you may edit other members' bullets, and only to the confirmed text. Never soften or omit. An inaccurate disclosure is worse than heavy AI use.
 
-6. **Compile exactly one PDF from `report.typ`.** Name it `GroupXX.pdf` with the group number padded to two digits, `Group07.pdf` for group 7. With no group, use the gatorlink of `Me:`, for example `ada.pdf`. Delete every other PDF in the repository first. Fix every error and warning; a missing image is an error.
+6. **Compile exactly one PDF from `report.typ`.** Name it `LabXX.pdf` with the lab number padded to two digits, `Lab04.pdf` for Lab 4, so each lab's PDF has its own name in the repository. Delete every other PDF in the repository first. Fix every error and warning; a missing image is an error.
 
    ```sh
-   typst compile report.typ Group07.pdf
+   typst compile report.typ Lab04.pdf
    ```
 
-7. **Verify.** Every required heading appears once. No `#todo` remains except `#todo[To be written by the student.]` in a manual section, each reported to the student, and any placeholder in a section whose heading starts with "Extra credit", which may stay untouched. `authors` is no longer the shipped default and every member appears on the first page, spelled as in `GROUP.md`, with the group number when there is one. AI disclosure is the last section, one bullet per member in roster order, one blank line between bullets, confirmed by the group. Manual sections contain only the student's words. `GroupXX.pdf` is the only PDF in the tree.
+7. **Verify.** Every required heading appears once. No `#todo` remains except `#todo[To be written by the student.]` in a manual section, each reported to the student, and any placeholder in a section whose heading starts with "Extra credit", which may stay untouched. `authors` is no longer the shipped default and every member appears on the first page, spelled as in `GROUP.md`, with the group number when there is one. AI disclosure is the last section, one bullet per member in roster order, one blank line between bullets, confirmed by the group. Manual sections contain only the student's words. `LabXX.pdf` is the only PDF in the tree.
 
 8. **Report** in a few lines: the PDF path, which sections you drafted, and anything left for the student to do by hand. Do not commit the PDF. Commit and push `report.typ` so the group has the final version.

@@ -8,7 +8,7 @@ Files: `README.md` is the current lab. `report.typ` is the report; its headings 
 
 - `upstream` is the public course repository, `github.com/uf-focus-lab/Computational-Photography`, read-only. Every lab is a branch named `Lab0`, `Lab1`, `Lab2`, and so on. `welcome`, the default branch, holds the setup guide and the shared files. There is no `main`.
 - `origin` is a private repository, the student's own or the group's shared one. Every push goes there. An optional `personal` remote may hold a member's backup.
-- Students commit directly on the lab branch. No pull requests. The deliverable is one `GroupXX.pdf` per group, compiled from `report.typ`, uploaded to Canvas by one member.
+- Students commit directly on the lab branch. No pull requests. The deliverable is one `LabXX.pdf` per group, `XX` the two-digit lab number, compiled from `report.typ`, uploaded to Canvas by one member.
 - Forking is prohibited. A fork of a public repository is public.
 - The group roster is the `authors` list in `report.typ`, committed and shared. `GROUP.md` is derived from it.
 

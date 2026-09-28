@@ -3,7 +3,7 @@
 `report.typ` at the repository root is the report. Its top-level headings are the required sections, in order. Red underlined text is a placeholder. Build with
 
 ```sh
-typst compile report.typ GroupXX.pdf      # XX is your two-digit group number
+typst compile report.typ LabXX.pdf        # XX is the two-digit lab number, Lab04.pdf for Lab 4
 ```
 
 ## Placeholders

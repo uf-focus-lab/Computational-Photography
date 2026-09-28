@@ -72,4 +72,4 @@ Repository: git@github.com:ada/comp-photo-labs.git
 | Alan Turing  | turing@ufl.edu |
 ```
 
-Each lab: `git fetch upstream`, `git switch -c Lab1 upstream/Lab1`, `git push -u origin Lab1`, do the work described in `README.md`, build `GroupXX.pdf` following `docs/SUBMISSION.md`, and upload it to Canvas. Pull before you start each day and push when you stop.
+Each lab: `git fetch upstream`, `git switch -c Lab1 upstream/Lab1`, `git push -u origin Lab1`, do the work described in `README.md`, build `LabXX.pdf` following `docs/SUBMISSION.md`, and upload it to Canvas. Pull before you start each day and push when you stop.
