@@ -101,6 +101,18 @@ On "start lab N", "get lab N" or similar:
 
 "Checkout clean" means the branch matches its source. Untracked files are the student's and stay.
 
+## Course updates
+
+The course repository changes after a lab is out: a starter fix, a wording change in `README.md`, or a rewrite of a branch's history (on 2026-09-30, `Lab0` to `Lab4` were squashed to one commit each on `welcome`). None of that touches the student's work, and a clone made before a rewrite keeps working; it only needs a merge, never a re-clone. To bring an update in, on the lab branch with `git status --porcelain` empty:
+
+1. `git fetch upstream`.
+2. `git merge -X ours upstream/LabN`. Do not rebase, reset or re-clone: a merge keeps every student commit, and it works after a history rewrite because both sides descend from `welcome`. `-X ours` settles the files both sides changed, such as `report.typ`, in the student's favour while still taking every file only upstream changed; after the 2026-09-30 rewrite this merges cleanly and adds one merge commit.
+3. If git still reports conflicts, resolve them file by file. Course files, `README.md`, `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, anything under `docs/`, and starter code the student never edited: take upstream's version, `git checkout --theirs <file>`. The student's files, `report.typ`, result images and code the student changed: keep the student's version, `git checkout --ours <file>`, and carry an upstream fix over by hand only when the student needs it. Then `git add` the files and `git commit` with the default merge message. A conflict in the AI disclosure keeps each member's own latest bullet.
+4. If `git merge` refuses with "refusing to merge unrelated histories", add `--allow-unrelated-histories` and resolve as above.
+5. Say in one line what came in. Push to `origin` after "Before any push" so teammates get the same update; they then `git pull --ff-only` as usual.
+
+Never run `git pull` against `upstream`, and never force-push an update.
+
 ## Hard rules
 
 - Never fork the course repository, run `gh repo fork`, suggest the Fork button, create a public repository, or make a repository public.

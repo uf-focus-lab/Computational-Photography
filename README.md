@@ -4,10 +4,21 @@ This is a template repository to kick-start in-class labs: it gives your group a
 
 Use of this repo is elective. Every Canvas assignment page also carries the lab handout, a Word report template and, where there is starter code, a MATLAB version, so your group can do any lab the conventional way and hand in the same PDF.
 
-## Agentic setup
+## Humans, start here
 
-> [!CAUTION]
-> This section is written for **AI agents**. If you are a human, stop here and point your AI to this page. You may follow the [manual setup](#manual-setup) instructions if you prefer to set it up yourself.
+> [!WARNING]
+> The rest of this page is written for an **AI agent**, not for you. Do not work through it by hand. Open a CLI coding agent in a terminal on your own computer, such as Claude Code, Codex CLI or Gemini CLI, and paste this prompt:
+>
+> ```text
+> Set me up for the Computational Photography labs. Read the agentic setup in
+> https://github.com/uf-focus-lab/Computational-Photography/blob/welcome/README.md
+> and follow it step by step.
+> ```
+>
+> The agent asks you two questions, creates your private repository, and hands over to `AGENTS.md`. Unfold **Manual setup** below only if you would rather do it yourself.
+
+<details>
+<summary><b>Agentic setup</b>: the steps the agent follows</summary>
 
 Agent: work through these steps in order. Ask only what a step tells you to ask, and never fork the course repository or make anything public.
 
@@ -24,7 +35,10 @@ Agent: work through these steps in order. Ask only what a step tells you to ask,
 
 5. **Hand over to `AGENTS.md`** in the clone and follow it from now on. Run its onboarding, which records the group in `GROUP.md`; it already knows the collaboration choice from step 2, so do not ask again. Finish by starting Lab 0 as `AGENTS.md` describes, and tell the student in three lines what was set up and where their work will be pushed.
 
-## Manual setup
+</details>
+
+<details>
+<summary><b>Manual setup</b>: without an agent</summary>
 
 Requirements: git, Python 3.10 or newer, typst 0.12 or newer. Install typst with `brew install typst`, `winget install Typst.Typst`, or `cargo install typst-cli`.
 
@@ -73,3 +87,5 @@ Repository: git@github.com:ada/comp-photo-labs.git
 ```
 
 Each lab: `git fetch upstream`, `git switch -c Lab1 upstream/Lab1`, `git push -u origin Lab1`, do the work described in `README.md`, build `LabXX.pdf` following `docs/SUBMISSION.md`, and upload it to Canvas. Pull before you start each day and push when you stop.
+
+</details>
