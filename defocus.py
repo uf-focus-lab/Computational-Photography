@@ -16,6 +16,7 @@ Run:
 Outputs:
     defocus1.png, ...   the photo with everything outside mask k blurred
     masks.png           every mask in one image; does it look like depth?
+Extra credit (optional, not done here): defocus1_clean.png, ...
 """
 
 import glob

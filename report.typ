@@ -56,6 +56,28 @@
   [*Masks*], [#todo[How many layers, and which tool made the masks: painted by hand, Segment Anything, or Depth Anything (and how the depth map was split into layers).]],
 )
 
+= Extra credit: defocus without halos or holes
+
+#todo[Optional; leave as is if not attempted.]
+
+== Implementation
+
+#todo[What you did and why, and the files involved.]
+
+== Demonstration
+
+#panels(columns: 2, (
+  (none, "Lab result"),
+  (none, "Clean result"),
+))
+
+#panels(columns: 2, (
+  (none, "Lab result, edge crop"),
+  (none, "Clean result, edge crop"),
+))
+
+#todo[Which edge the crops show and what changed between them.]
+
 = AI disclosure
 
 - *#todo[Member Name]*: #todo[AI tools this member used and for what.]

@@ -16,10 +16,15 @@ Over the next few weeks we cover camera focus and defocus, and projector focus a
 
 5. Combine every mask into one image, each layer at its own grey level. Does it look like a depth image? Answer yes or no and say why.
 
+6. **Extra credit (up to 10 points, optional):** defocus with no halos and no holes. Blurring the whole photo and masking it leaves a halo of subject colour around the in-focus object; cutting the subject out of the background before blurring leaves a dark fringe instead. Work out why both happen and produce results with neither, as `defocus1_clean.png`, `defocus2_clean.png`, ...
+
+   1. **Implementation:** what you did and why, and the files involved.
+   2. **Demonstration:** one clean result beside your step 4 result, and zoomed edge crops side by side with a few sentences on the difference.
+
 The starter script `defocus.py` does steps 2 to 5 once `image.jpg` and the masks are in place: it writes the defocused images and `masks.png`. Your work is the photo and the masks; change the blur if the effect is too weak or too strong.
 
 ## Submission
 
-Submit **one PDF** named `Lab05.pdf`, the two-digit lab number. It shows the photo and the combined mask image, then one subsection per focal plane with its mask and its defocused result, from near to far: copy the `Layer X` template in `report.typ` once per mask and delete the template. A Compositing section describes how the layers were put back together, then comes your answer. The **Observations** section is written by a group member, not by an AI; every red underlined placeholder must be filled in.
+Submit **one PDF** named `Lab05.pdf`, the two-digit lab number. It shows the photo and the combined mask image, then one subsection per focal plane with its mask and its defocused result, from near to far: copy the `Layer X` template in `report.typ` once per mask and delete the template. A Compositing section describes how the layers were put back together, then comes your answer. The **Observations** section is written by a group member, not by an AI; every red underlined placeholder must be filled in, except in the extra credit section.
 
 Tell your agent `Build the PDF.` It collects your results into the report, drafts the AI disclosure for your group to confirm, points out anything missing, and produces the ready-to-submit PDF. Commit the photo, the masks and the result images, each under 5 MB.
