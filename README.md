@@ -33,7 +33,7 @@ Agent: work through these steps in order. Ask only what a step tells you to ask,
 
 4. **Environment.** `python3 --version` must be 3.10 or newer and `typst --version` 0.12 or newer. If typst is missing, offer to install it with `brew install typst`, `winget install Typst.Typst`, or `cargo install typst-cli`, and ask before installing. Then `python3 -m venv .venv` and install `requirements.txt` with the venv's pip.
 
-5. **Hand over to `AGENTS.md`** in the clone and follow it from now on. Run its onboarding, which records the group in `GROUP.md`; it already knows the collaboration choice from step 2, so do not ask again. Finish by starting Lab 0 as `AGENTS.md` describes, and tell the student in three lines what was set up and where their work will be pushed.
+5. **Hand over to `AGENTS.md`** in the clone and follow it from now on. Run its onboarding, which records the group in `GROUP.md`; it already knows the collaboration choice from step 2, so do not ask again. Finish by starting the current lab as `AGENTS.md` describes, and tell the student in three lines what was set up and where their work will be pushed.
 
 </details>
 
@@ -86,6 +86,6 @@ Repository: git@github.com:ada/comp-photo-labs.git
 | Alan Turing  | turing@ufl.edu |
 ```
 
-Each lab: `git fetch upstream`, `git switch -c Lab1 upstream/Lab1`, `git push -u origin Lab1`, do the work described in `README.md`, build `LabXX.pdf` following `docs/SUBMISSION.md`, and upload it to Canvas. Pull before you start each day and push when you stop.
+Each lab: `git fetch upstream`, `git switch -c Lab1 upstream/Lab1`, `git push -u origin Lab1`, do the work described in `README.md`, build `LabXX.pdf` (`TakeHomeXX.pdf` for a take-home lab, on a local branch `TakeHome/LabN` cut from `upstream/TakeHome/LabN` and never pushed) following `docs/SUBMISSION.md`, and upload it to Canvas. Pull before you start each day and push when you stop.
 
 </details>

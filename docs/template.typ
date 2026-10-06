@@ -8,8 +8,10 @@
   date: datetime.today(),
   body,
 ) = {
+  // lab is a number, or a full name such as "Take-Home Lab 1".
+  let name = if type(lab) == str { lab } else { "Lab " + str(lab) }
   set document(
-    title: "Lab " + str(lab) + ": " + title,
+    title: name + ": " + title,
     author: authors.map(a => a.name),
   )
   set page(
@@ -17,7 +19,7 @@
     margin: (x: 1in, top: 0.9in, bottom: 0.8in),
     header: [
       #set text(size: 9pt, fill: luma(40%))
-      Computational Photography | Lab #lab
+      Computational Photography | #name
       #h(1fr)
       #date.display("[month repr:long] [day], [year]")
     ],
@@ -31,18 +33,19 @@
   set par(justify: true, leading: 0.65em)
   set heading(numbering: "1.1")
   show heading.where(level: 1): it => block(above: 1.4em, below: 0.8em, it)
-  show raw.where(block: true): it => block(
+  // Code blocks with their own theme are drawn by code() below.
+  show raw.where(block: true): it => if it.theme != auto { it } else { block(
     fill: luma(96%),
     inset: 8pt,
     radius: 3pt,
     width: 100%,
     text(size: 9pt, it),
-  )
+  ) }
   show figure.caption: set text(size: 9.5pt)
 
   // Title block.
   align(center)[
-    #text(size: 17pt, weight: "bold")[Lab #lab: #title]
+    #text(size: 17pt, weight: "bold")[#name: #title]
     #v(0.15em)
     #text(size: 10.5pt)[
       #if group != none [#text(weight: "semibold")[Group #group] #h(0.8em)]
@@ -87,3 +90,18 @@
     ..rows,
   )
 }
+
+// A source file, path from the repository root, syntax highlighted in VS Code's
+// Dark Modern colours on a dark rounded block that breaks across pages.
+#let code(path, lang) = block(
+  fill: rgb("#1f1f1f"),
+  radius: 6pt,
+  inset: 10pt,
+  width: 100%,
+  breakable: true,
+  {
+    set text(size: 8pt, fill: rgb("#cccccc"))
+    set par(justify: false)
+    raw(read("/" + path), lang: lang, block: true, theme: "/docs/dark-modern.tmTheme")
+  },
+)

@@ -4,6 +4,7 @@
 
 ```sh
 typst compile report.typ LabXX.pdf        # XX is the two-digit lab number, Lab04.pdf for Lab 4
+                                          # take-home labs: TakeHome01.pdf for Take-Home Lab 1
 ```
 
 ## Placeholders
@@ -25,7 +26,7 @@ typst compile report.typ LabXX.pdf        # XX is the two-digit lab number, Lab0
 )
 ```
 
-`authors` is your group's roster, filled once during onboarding and shared through the repository. Every other file takes the roster from here. Names become mailto links on the title page.
+`lab` is a number, or a full name such as `"Take-Home Lab 1"` for a take-home lab. `authors` is your group's roster, filled once during onboarding and shared through the repository. Every other file takes the roster from here. Names become mailto links on the title page.
 
 ## Image panels
 
@@ -41,6 +42,15 @@ Each entry is a file name relative to the repository root and a label. `none` sh
 ## Manual sections
 
 `// manual` on the line above a heading means a student writes that section in their own words. Agents insert the text verbatim or leave `#todo[To be written by the student.]`.
+
+## Source code
+
+```typst
+#code("metrics.py", "python")
+#code("metrics.m", "matlab")
+```
+
+A lab that asks for the source code in the PDF has a Source code section. Each `code` line embeds one file, path from the repository root, syntax highlighted in VS Code's Dark Modern colours (`docs/dark-modern.tmTheme`) on a dark rounded block that breaks across pages. Add one line per file you wrote and delete the lines of files you did not use.
 
 ## AI disclosure
 
@@ -60,4 +70,4 @@ It is a living record. After every piece of work your agent rewrites your own bu
 
 ## Plain markup only
 
-Headings, bullet lists, tables and figures. No new functions, and no imports beyond `submission`, `panels` and `todo`.
+Headings, bullet lists, tables and figures. No new functions, and no imports beyond `submission`, `panels`, `todo` and `code`.

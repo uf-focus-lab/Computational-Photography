@@ -16,6 +16,7 @@ __pycache__/
 !/docs/REPORT.md
 !/docs/SUBMISSION.md
 !/docs/template.typ
+!/docs/dark-modern.tmTheme
 
 # Group record, written by the agent on the first session. Untracked so it
 # survives every checkout and never reaches a remote.
