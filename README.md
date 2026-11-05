@@ -1,91 +1,56 @@
-# Computational Photography Labs
+# Take-Home Lab 2: Depth Edges and Blender for Ground Truth
 
-This is a template repository to kick-start in-class labs: it gives your group a private workspace, an AI agent that knows the course rules, and a report that builds itself.
+> **Individual assignment.** Every student uploads one file: their own `TakeHome02.pdf`, including their source code. You may discuss with your group, but the write-up and the code are yours.
 
-Use of this repo is elective. Every Canvas assignment page also carries the lab handout, a Word report template and, where there is starter code, a MATLAB version, so your group can do any lab the conventional way and hand in the same PDF.
+<!-- Agents: Before setup, implementation or PDF generation, read AGENTS.md, especially "Take-Home Lab 2: agent execution guide". Its TH2-specific rules override generic group onboarding and PDF-cleanup instructions. Follow the visible tasks without adding requirements or writing manual discussion. -->
 
-## Humans, start here
+Generate simulated depth edges, compare them with ground truth, and investigate the effect of lighting direction and camera–light separation. Work in Python or MATLAB. The due date is **Friday, November 20, 2026, at 11:59 p.m. Eastern**.
 
-> [!WARNING]
-> The rest of this page is written for an **AI agent**, not for you. Do not work through it by hand. Open a CLI coding agent in a terminal on your own computer, such as Claude Code, Codex CLI or Gemini CLI, and paste this prompt:
->
-> ```text
-> Set me up for the Computational Photography labs. Read the agentic setup in
-> https://github.com/uf-focus-lab/Computational-Photography/blob/welcome/README.md
-> and follow it step by step.
-> ```
->
-> The agent asks you two questions, creates your private repository, and hands over to `AGENTS.md`. Unfold **Manual setup** below only if you would rather do it yourself.
+## Inputs
 
-<details>
-<summary><b>Agentic setup</b>: the steps the agent follows</summary>
+Download the five files from Canvas and put them in one folder:
 
-Agent: work through these steps in order. Ask only what a step tells you to ask, and never fork the course repository or make anything public.
+- [depth.exr](https://ufl.instructure.com/courses/576415/files/108439555/download): the Blender depth pass.
+- [bottom.png](https://ufl.instructure.com/courses/576415/files/108439533/download), [top.png](https://ufl.instructure.com/courses/576415/files/108439557/download), [left.png](https://ufl.instructure.com/courses/576415/files/108439553/download), and [right.png](https://ufl.instructure.com/courses/576415/files/108439554/download): the same scene under four lighting directions.
 
-1. **Run `git --version` silently.** If it prints a version, continue without comment. If the shell works but git is missing, offer to install it, `xcode-select --install` on macOS, `winget install Git.Git` on Windows, or the distribution's package manager on Linux, and ask before installing. The shell must be on the student's own computer. If you cannot execute commands at all, or you are running in a hosted sandbox or cloud workspace such as Codex cloud, Claude Code on the web, or a Codespace, stop here: tell the student this setup needs a CLI coding agent in a terminal on their own machine, such as Claude Code, Codex CLI or Gemini CLI, and that pasting the same prompt there is all they have to do. Signs of a sandbox: running as root in a container, a home directory that is not the student's, no persistent disk. If unsure, ask the student whether this terminal is on their own computer. Do not describe, simulate or narrate the steps below, and do not ask the student to run commands on your behalf.
+You may instead use matching images and a depth pass from your own Blender scene. The supplied renders are enough to complete this assignment; creating a new scene is optional. Also locate your real in-class Lab 2 result for comparison.
 
-2. **Ask two things in one message.** First, how the student wants to collaborate, three options: solo; first in my group, I will host the group repository; or joining my group's repository, in which case ask for its URL. Second, which folder to clone into. If they have no preference, suggest `~/Projects/comp-photo` on macOS and Linux or `%USERPROFILE%\Projects\comp-photo` on Windows, and create it. Read both answers back and get an explicit yes before running any command.
+References: [Edge Detection and Depth Edges](https://ufl.instructure.com/courses/576415/files/108439697), [Blender, Edge Detection, and Depth-Edges](https://ufl.instructure.com/courses/576415/files/108439543), and the [non-photorealistic camera paper and project](https://web.media.mit.edu/~raskar/NprCamera/).
 
-3. **Clone into the chosen folder.**
-   - Solo or hosting: `git clone https://github.com/uf-focus-lab/Computational-Photography.git`, enter it, `git remote rename origin upstream`. Then create their private repository. With `gh`: `gh repo create comp-photo-labs --private --source=. --remote=origin --push`. Without it, ask them to create an empty private repository on github.com and paste its URL, then `git remote add origin <url>` and `git push -u origin welcome`. If hosting, tell them to add each teammate under the repository's Settings, Collaborators, and to send teammates the URL.
-   - Joining: `git clone <url>`, enter it, then `git remote add upstream https://github.com/uf-focus-lab/Computational-Photography.git`.
-   - Confirm with `git remote -v` that `origin` is private and `upstream` is the course repository. Never push to `upstream`.
+## Tasks
 
-4. **Environment.** `python3 --version` must be 3.10 or newer and `typst --version` 0.12 or newer. If typst is missing, offer to install it with `brew install typst`, `winget install Typst.Typst`, or `cargo install typst-cli`, and ask before installing. Then `python3 -m venv .venv` and install `requirements.txt` with the venv's pip.
+1. From `depth.exr`, or the equivalent depth pass from your own scene, create ground-truth depth edges. Include them in your report.
+2. Apply your non-photorealistic camera depth-edge algorithm from in-class Lab 2 to the four rendered images. Include the result and compare it with the ground truth, both visually and numerically. State the comparison equation and its value. Discuss how these simulated depth edges differ from your real Lab 2 result.
+3. Discuss how your algorithm would change if you took eight photos instead of four, including the diagonal lighting directions. Discuss what happens as the distance between the camera and the light source increases.
+4. Optional extra credit: try to improve Part 1 or Part 2 by modifying your implementation. Show the new result alongside the baseline and discuss your strategy and why it did or did not work.
+5. Optional extra credit: write what could be improved about this assignment in the report's Feedback section.
 
-5. **Hand over to `AGENTS.md`** in the clone and follow it from now on. Run its onboarding, which records the group in `GROUP.md`; it already knows the collaboration choice from step 2, so do not ask again. Finish by starting the current lab as `AGENTS.md` describes, and tell the student in three lines what was set up and where their work will be pushed.
+The discussion sections are written by you. No AI may author or draft their text.
 
-</details>
+## Starter
 
-<details>
-<summary><b>Manual setup</b>: without an agent</summary>
-
-Requirements: git, Python 3.10 or newer, typst 0.12 or newer. Install typst with `brew install typst`, `winget install Typst.Typst`, or `cargo install typst-cli`.
-
-First in your group, or working solo:
+`depth_edges.py` loads and checks the inputs; the ground-truth, four-light, and comparison functions are left for you to implement. Check your data with:
 
 ```sh
-git clone https://github.com/uf-focus-lab/Computational-Photography.git
-cd Computational-Photography
-git remote rename origin upstream
-gh repo create comp-photo-labs --private --source=. --remote=origin --push
-# Without gh: create an empty private repository on github.com, then
-#   git remote add origin git@github.com:<you>/comp-photo-labs.git
-#   git push -u origin welcome
+python depth_edges.py --data path/to/inputs --check-inputs
 ```
 
-Add teammates under the repository's Settings, Collaborators.
+After filling the stubs, omit `--check-inputs` to save the result images. The loader preserves the floating-point depth values. It expects the input images to have matching dimensions and does not resize them silently. If your OpenCV build cannot read EXR, use an EXR-capable reader and retain the original depth values.
 
-Joining a repository a teammate already created:
+Use the plain Python script `depth_edges.py`; no Jupyter notebook is required. For a standalone Python setup, install the course packages with `python -m pip install numpy scipy opencv-python matplotlib scikit-image`. The original [MATLAB Live Script](https://ufl.instructure.com/courses/576415/files/108439556/download) remains an alternative. If you work in a Live Script, include all code cells as text in the PDF's Source code section.
 
-```sh
-git clone git@github.com:<teammate>/comp-photo-labs.git
-cd comp-photo-labs
-git remote add upstream https://github.com/uf-focus-lab/Computational-Photography.git
-```
+## Submission
 
-Then, in either case:
+Upload **exactly one file: `TakeHome02.pdf`**. It contains everything to be graded, in this order:
 
-```sh
-python3 -m venv .venv
-source .venv/bin/activate        # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-```
+1. Results, implementation details, and your own discussion; include any optional improvement results and feedback here. Keep this report portion within two pages.
+2. **Source code:** include the complete code you used as readable, selectable text with syntax highlighting, labeled by filename. Include all code cells if you used a notebook or MATLAB Live Script. This section has no page limit.
+3. **AI disclosure**, last; excluded from the two-page report limit.
 
-Create `GROUP.md` at the root. Git ignores it.
+Do not upload separate code files, notebooks, images, Word documents, or archives. Keep your working files locally. Fill every red placeholder except optional extra-credit sections; use the Feedback section for the feedback bonus rather than a separate Canvas comment.
 
-```markdown
-# Group 7
+Tell your agent **Build the PDF.** It follows `docs/SUBMISSION.md`, includes your results and source code, inserts your own discussion text, and drafts the AI disclosure for you to confirm. This branch stays on your computer; never push it to your group's repository.
 
-Me: Ada Lovelace
-Repository: git@github.com:ada/comp-photo-labs.git
+To start in an existing agentic workspace, say:
 
-| Name         | UF email       |
-| ------------ | -------------- |
-| Ada Lovelace | ada@ufl.edu    |
-| Alan Turing  | turing@ufl.edu |
-```
-
-Each lab: `git fetch upstream`, `git switch -c Lab1 upstream/Lab1`, `git push -u origin Lab1`, do the work described in `README.md`, build `LabXX.pdf` (`TakeHomeXX.pdf` for a take-home lab, on a local branch `TakeHome/LabN` cut from `upstream/TakeHome/LabN` and never pushed) following `docs/SUBMISSION.md`, and upload it to Canvas. Pull before you start each day and push when you stop.
-
-</details>
+> Start Take-Home Lab 2, this is an individual assignment so fetch directly from upstream branch TakeHome/Lab2, then follow its instructions.

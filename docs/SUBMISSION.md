@@ -1,5 +1,7 @@
 # Generate the submission PDF
 
+<!-- Agents on TakeHome/Lab2: Read and apply AGENTS.md section "Take-Home Lab 2: agent execution guide" before following this shared document. Its individual-roster, file-preservation, optional-work, manual-text and submission-readiness rules take precedence. In particular, preserve other PDFs and never push this branch to the group repository. -->
+
 Paste this file into your agent, or reference it with `@docs/SUBMISSION.md`, when the lab work is done. It also works as a checklist by hand.
 
 1. **Read the lab and the report.** `README.md` gives the tasks and deliverables. `report.typ` gives the structure: its top-level headings are the required sections, `// manual` above a heading marks a section a student must write, and every red `#todo[...]` is a placeholder. `docs/REPORT.md` explains the template. Confirm `git branch --show-current` is `LabN` for lab N, or `TakeHome/LabN` for take-home lab N; stop if not.

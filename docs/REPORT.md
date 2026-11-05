@@ -1,5 +1,7 @@
 # Writing the report
 
+<!-- Agents on TakeHome/Lab2: Read and apply AGENTS.md section "Take-Home Lab 2: agent execution guide" before following this shared document. Its individual-roster, file-preservation, optional-work, manual-text and submission-readiness rules take precedence. In particular, preserve other PDFs and never push this branch to the group repository. -->
+
 `report.typ` at the repository root is the report. Its top-level headings are the required sections, in order. Red underlined text is a placeholder. Build with
 
 ```sh
